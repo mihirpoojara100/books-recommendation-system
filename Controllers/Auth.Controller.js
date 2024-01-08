@@ -25,8 +25,7 @@ class AuthController {
             const { email, password } = req.body;
             const user = await AuthModel.getUser({ email });
 
-            if (!user)
-                return res.handler.unauthorized('USER.INVALID_CREDENTIALS');
+            if (!user) return res.handler.unauthorized('Invalid Credentials');
 
             const check_pass = AuthModel.comparePassword(
                 password,
@@ -34,11 +33,11 @@ class AuthController {
             );
 
             if (!check_pass)
-                return res.handler.unauthorized('USER.INVALID_CREDENTIALS');
+                return res.handler.unauthorized('Invalid Credentials');
 
             const authToken = jwt.sign({ user }, process.env.SECRETKEY);
 
-            await AuthModel.findUserTokenByUserId(user.id, authToken);
+            await AuthModel.createUserToken(user.id, authToken);
 
             const data = {
                 user,

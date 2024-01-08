@@ -5,4 +5,5 @@ module.exports = (app) => {
         );
     });
     app.use('/auth', require('./Auth.Routes'));
+    app.use('/review', require('./Review.Routes'));
 };

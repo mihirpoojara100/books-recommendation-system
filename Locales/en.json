@@ -81,7 +81,9 @@
 	},
 	"USER": {
 		"CREATED": "USER.CREATED",
-		"LOGIN_SUCCESSFULLY": "Login successfully"
+		"LOGIN_SUCCESSFULLY": "Login successfully",
+		"INVALID_CREDENTIALS": "USER.INVALID_CREDENTIALS"
 	},
-	"Login Successfully": "Login Successfully"
+	"Login Successfully": "Login Successfully",
+	"Invalid Credentials": "Invalid Credentials"
 }

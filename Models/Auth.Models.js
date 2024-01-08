@@ -18,12 +18,11 @@ class AuthModel {
         return compareSync(password_entered, password_in_db);
     }
 
-    async findUserTokenByUserId(userId, authToken) {
-        return UserSessions.findOrCreate({
-            where: {
-                userId,
-                authToken,
-            },
+    async createUserToken(userId, authToken) {
+        return UserSessions.create({
+            userId,
+            authToken,
+            s,
         });
     }
 }
